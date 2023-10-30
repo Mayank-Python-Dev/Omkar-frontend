@@ -118,7 +118,7 @@ function MyLayout({ children }, props) {
     const [notificationCount, setNotificationCount] = useState("")
     const notificationState = useSelector((state) => state.adminNotification.notificationUpdate)
 
-let socket = new WebSocket(`ws://127.0.0.1:8000/ws/room/${companyType}`);
+let socket = new WebSocket(`${process.env.REACT_APP_NEXT_PUBLIC_WEBSOCKET_URL}${companyType}`);
 
     useEffect(() => {
         socket.onopen = function (e) {
